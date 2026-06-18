@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style_Cal.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="page-label">Calculator</h1>
+      <div class="header-controls">
+        <button class="ctrl-btn theme-toggle" id="themeBtn" title="Toggle Theme">🌙</button>
+        <button class="ctrl-btn history-toggle" id="historyBtn" title="Show History">📋</button>
+        <button class="ctrl-btn mode-toggle" id="sciBtn" title="Scientific Mode">🔬</button>
+        <button class="ctrl-btn currency-toggle" id="currencyBtn" title="Currency">💱</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="calculator" role="main" aria-label="Calculator">
+        <div class="display">
+          <div class="display-badge" aria-hidden="true"></div>
+          <div class="display-expr" id="expr"></div>
+          <div class="display-number" id="num" aria-live="polite">0</div>
+        </div>
+
+        <div class="sci-panel" id="sciPanel" hidden>
+          <button class="key key-sci" data-f="sin">sin</button>
+          <button class="key key-sci" data-f="cos">cos</button>
+          <button class="key key-sci" data-f="tan">tan</button>
+          <button class="key key-sci" data-f="log">log</button>
+          <button class="key key-sci" data-f="sqrt">√</button>
+          <button class="key key-sci" data-f="pow2">x²</button>
+        </div>
+
+        <div class="keypad" id="keypad">
+          <button class="key key-fn" data-a="clear">AC</button>
+          <button class="key key-fn" data-a="sign">+/−</button>
+          <button class="key key-fn del-btn" data-a="delete">DEL</button>
+          <button class="key key-op" data-o="÷">÷</button>
+
+          <button class="key" data-d="7">7</button>
+          <button class="key" data-d="8">8</button>
+          <button class="key" data-d="9">9</button>
+          <button class="key key-op" data-o="×">×</button>
+
+          <button class="key" data-d="4">4</button>
+          <button class="key" data-d="5">5</button>
+          <button class="key" data-d="6">6</button>
+          <button class="key key-op" data-o="−">−</button>
+
+          <button class="key" data-d="1">1</button>
+          <button class="key" data-d="2">2</button>
+          <button class="key" data-d="3">3</button>
+          <button class="key key-op" data-o="+">+</button>
+
+          <button class="key key-wide" data-d="0">0</button>
+          <button class="key" data-a="dot">.</button>
+          <button class="key key-eq" data-a="eq">=</button>
+        </div>
+      </div>
+
+      <div class="history-panel" id="historyPanel" hidden>
+        <div class="panel-header">
+          <h3>Calculation History</h3>
+          <button class="close-btn" id="closeHistory">×</button>
+        </div>
+        <div class="history-list" id="historyList"></div>
+        <button class="clear-history-btn" id="clearHistory">Clear All</button>
+      </div>
+
+      <div class="currency-panel" id="currencyPanel" hidden>
+        <div class="panel-header">
+          <h3>Currency Converter</h3>
+          <button class="close-btn" id="closeCurrency">×</button>
+        </div>
+        <div class="currency-content">
+          <div class="currency-input">
+            <input type="number" id="currencyAmount" placeholder="Amount" value="1">
+            <select id="fromCurrency">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="JPY">JPY</option>
+              <option value="PHP">PHP</option>
+            </select>
+          </div>
+          <div class="currency-swap">⇄</div>
+          <div class="currency-input">
+            <input type="number" id="toCurrency" placeholder="Result" readonly>
+            <select id="toCurrencyCode">
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+              <option value="JPY">JPY</option>
+              <option value="PHP">PHP</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">Keyboard supported · ESC to clear</p>
+  </div>
+
+  <script src="Interaction.js" defer></script>
+</body>
+</html>
